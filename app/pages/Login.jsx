@@ -21,18 +21,7 @@ function LoginInner() {
     const role = searchParams.get('role')
     if (role === 'admin' || role === 'student') {
       setLoginType(role)
-      // Pre-fill credentials based on role for demo
-      if (role === 'admin') {
-        setFormData({
-          email: "admin@campuslink.com",
-          password: "admin123"
-        })
-      } else {
-        setFormData({
-          email: "john@student.com",
-          password: "student123"
-        })
-      }
+      setFormData({ email: '', password: '' })
     }
   }, [searchParams])
 
@@ -99,10 +88,7 @@ function LoginInner() {
                 type="button"
                 onClick={() => {
                   setLoginType('student')
-                  setFormData({
-                    email: "john@student.com",
-                    password: "student123"
-                  })
+                  setFormData({ email: '', password: '' })
                 }}
                 className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
                   loginType === 'student'
@@ -116,10 +102,7 @@ function LoginInner() {
                 type="button"
                 onClick={() => {
                   setLoginType('admin')
-                  setFormData({
-                    email: "admin@campuslink.com",
-                    password: "admin123"
-                  })
+                  setFormData({ email: '', password: '' })
                 }}
                 className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
                   loginType === 'admin'
@@ -131,16 +114,6 @@ function LoginInner() {
               </button>
             </div>
             
-            {/* Demo Credentials */}
-            <div className="mt-4 p-3 bg-green-50 rounded-lg text-sm">
-              <p className="font-medium text-green-800 mb-2">
-                {loginType === 'admin' ? 'Admin' : 'Student'} Demo Credentials:
-              </p>
-              <div className="text-green-700">
-                <p><strong>Email:</strong> {formData.email}</p>
-                <p><strong>Password:</strong> {formData.password}</p>
-              </div>
-            </div>
           </div>
 
           {/* Error Message */}
