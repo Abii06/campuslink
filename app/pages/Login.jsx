@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useAuth } from "../contexts/AuthContext"
 
-export default function Login() {
+function LoginInner() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -209,5 +209,13 @@ export default function Login() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Login() {
+  return (
+    <Suspense>
+      <LoginInner />
+    </Suspense>
   )
 }
