@@ -13,6 +13,9 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  env: {
+    NEXT_PUBLIC_API_URL: "https://campuslink-production.up.railway.app/api",
+  },
 }
 
 export default nextConfig
